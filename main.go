@@ -83,7 +83,7 @@ func route_notes_find(w http.ResponseWriter, req *http.Request) {
 func main() {
 
 	port := os.Getenv("PORT") // Produccion
-	//port := "3000" // Desarrollo
+	//port := "3000" // Desarrollo.
 	router := mux.NewRouter()
 	fs := http.FileServer(http.Dir("./public/"))
 	router.PathPrefix("/files/").Handler(http.StripPrefix("/files/", fs))
