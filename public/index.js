@@ -1,5 +1,6 @@
 var myModal
 var selected
+var home="https://anotalo.herokuapp.com/"
 
 function buscar_notas() {
   document.getElementById("notas").innerHTML = ""
@@ -33,7 +34,7 @@ function buscar_notas() {
   var xhr = new XMLHttpRequest(); //invocar nueva instancia de XMLHttpRequest
   xhr.onload = exito; // llamar a la funcion exito si exitosa
   xhr.onerror = error;  // llamar a la funcion error si fallida
-  xhr.open('GET', 'http://localhost:3000/note'); // Abrir solicitud GET
+  xhr.open('GET', `${home}/note`); // Abrir solicitud GET
   xhr.send(); // mandar la solicitud al vervidor.
 }
 
@@ -65,7 +66,7 @@ function create_note() {
     body: body,
   }
 
-  fetch('http://localhost:3000/note', {
+  fetch(`${home}/note`, {
     method: "POST",
     body: JSON.stringify(_data),
     headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -85,7 +86,7 @@ function update_note() {
     body: body,
   }
 
-  url = `http://localhost:3000/note`
+  url = `${home}/note`
   fetch(url, {
     method: "PUT",
     body: JSON.stringify(_data),
@@ -99,7 +100,7 @@ function update_note() {
 
 function delete_note() {
 
-  url = `http://localhost:3000/note/${selected}`
+  url = `${home}/note/${selected}`
   fetch(url, {
     method: "DELETE",
     headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -139,7 +140,7 @@ function update_note1(id) {
   var xhr = new XMLHttpRequest(); //invocar nueva instancia de XMLHttpRequest
   xhr.onload = exito; // llamar a la funcion exito si exitosa
   xhr.onerror = error;  // llamar a la funcion error si fallida
-  url = `http://localhost:3000/note/${id}`
+  url = `${home}/note/${id}`
   xhr.open('GET', url); // Abrir solicitud GET
   xhr.send(); // mandar la solicitud al vervidor.
 }
