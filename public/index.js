@@ -1,7 +1,8 @@
 var myModal
 var selected
-var home="https://anotalo.herokuapp.com"  // produccion
-//var home="http://localhost:3000"  // desarrollo
+var home="https://anotalo.herokuapp.com"  // production
+//var home="http://localhost:3000"  // testing
+
 function buscar_notas() {
   document.getElementById("notas").innerHTML = ""
   function exito() {

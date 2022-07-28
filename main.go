@@ -82,8 +82,8 @@ func route_notes_find(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
-	port := os.Getenv("PORT") // Produccion
-	//port := "3000" // Desarrollo.
+	port := os.Getenv("PORT") // Production
+	//port := "3000" // testing
 	router := mux.NewRouter()
 	fs := http.FileServer(http.Dir("./public/"))
 	router.PathPrefix("/files/").Handler(http.StripPrefix("/files/", fs))
@@ -95,6 +95,5 @@ func main() {
 	router.HandleFunc("/note", route_notes_update).Methods("PUT")
 	log.Print("Listening on :" + port)
 	log.Fatal(http.ListenAndServe(":"+port, handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS", "DELETE"}), handlers.AllowedOrigins([]string{"*"}))(router)))
-	//log.Fatal(http.ListenAndServe(":"+port, router))
 
 }

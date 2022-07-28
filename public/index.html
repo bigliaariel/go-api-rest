@@ -38,10 +38,12 @@
                     <input id="id" name="id" type="hidden" value="">
                 </div>
                 <div class="modal-footer">
+                    <!--Div appears if the mode is create-->
                     <div id="create" >
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" onClick="create_note()" class="btn btn-primary">Create</button>
                     </div>
+                    <!--Div appears if the mode is update-->
                     <div id="update" style="width:100%">
                         <button type="button" onClick="delete_note()" class="btn btn-danger float-satrt">Delete</button>
                         <div class="float-end">
@@ -57,6 +59,7 @@
     </div>
     <div id="notas"></div>
     <script>
+        //find all notes
         buscar_notas()
     </script>
 
