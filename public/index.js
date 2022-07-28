@@ -121,8 +121,8 @@ function update_note1(id) {
       document.getElementById("body").focus()
     })
     
-    title = (typeof x.title === 'undefined') ? "" : datos.title
-    body = (typeof x.body === 'undefined') ? "" : datos.body
+    title = (typeof datos.title === 'undefined') ? "" : datos.title
+    body = (typeof datos.body === 'undefined') ? "" : datos.body
     document.getElementById("title").value = title
     document.getElementById("body").value = body
     document.getElementById("labelModal").textContent = "Update"
